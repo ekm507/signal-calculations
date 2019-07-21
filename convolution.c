@@ -7,6 +7,6 @@ struct function convolve(struct function a, struct function b)
 	if((a.first != b.first) || (a.last != b.last))
 	{
 		//error
-		return 0;
+		return ;
 	}
 }
