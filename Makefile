@@ -1,4 +1,4 @@
-play: function.o convolution.o play-main.o
+out: function.o convolution.o play-main.o
 	gcc play-main.o convolution.o function.o -o play
 
 function.o: function.c function.h
@@ -12,3 +12,6 @@ play-main.o: play-main.c
 
 clean:
 	rm *.o play
+
+play:
+	gcc play-main.c -o play
