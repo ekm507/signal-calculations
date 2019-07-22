@@ -1,54 +1,74 @@
 
 #include <stdio.h>
 
-#include "function.h"
-#include "convolution.h"
-
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
 
-double f1(double x);
+double fx(double x);
 
-double f2(double x);
+double impulse(double x);
+
+
+int convolve(double* f1, double* f2, double* out, long int start, long int end);
 
 int main(int argc, char** argv)
 {
 	double x;
-	double first = 0;
-	double last = 10;
-	const int size = 20;
+	long int first = 0;
+	long int last = 10;
+	const int size = last - first;
 	double l = last - first;
 	double d = l / size;
 	
 	double sum = 0;
 	
-	double func[size];
+	double func[size * 2];
 	memset(func, 0, sizeof func);
 	
-	for(int i = 0; i < size / 2; i++)
+	double f1[size];
+	double f2[size];
+	
+	for(long int i = first; i < last; i++)
 	{
-		sum += f1(i);
-		for(int j = i; j < i + size / 2; j++)
-		{
-			func[j] += f1(i) * f2(j - i);
-		}
+		f1[i - first] = fx(i);
+		f2[i - first] = fx(i);
 	}
 	
-	for(int i = 0; i < size; i++)
+	convolve(f1, f2, func, first, last);
+	
+	for(int i = 0; i < size * 2; i++)
 		printf("%d\t%f\n", i, func[i]);
 
 	return 0;
 }
 
-double f1(double x)
+double fx(double x)
 {
 	return x;
 }
 
-double f2(double x)
+double impulse(double x)
 {
 	if(x == 0)
 		return 1;
 	return 0;
 }
+
+int convolve(double* f1, double* f2, double* out, long int start, long int end)
+{
+
+	long int length = end - start;
+	
+	for(int i = start; i < end; i++)
+	{
+		for(int j = i; j < i + length; j++)
+		{
+			out[j] += f1[i] * f2[j - i];
+		}
+	}	
+	
+	return 0;
+}
+
+
