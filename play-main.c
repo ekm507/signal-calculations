@@ -12,6 +12,10 @@ double impulse(double x);
 
 int convolve(double* f1, double* f2, double* out, long int start, long int end);
 
+
+int laplace(double f, double out, double start, double end); // TODO
+
+
 int main(int argc, char** argv)
 {
 	double x;
