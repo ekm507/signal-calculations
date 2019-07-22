@@ -1,4 +1,7 @@
 
+//TODO : add comments
+//TODO : make a better standard for calculations
+
 #include <stdio.h>
 
 #include <stdlib.h>
@@ -13,7 +16,7 @@ double impulse(double x);
 int convolve(double* f1, double* f2, double* out, long int start, long int end);
 
 
-int laplace(double f, double out, double start, double end); // TODO
+int laplace(double f, double out, double start, double end); // TODO : should I use Z transform?
 
 
 int main(int argc, char** argv)
