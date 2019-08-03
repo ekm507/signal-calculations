@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <cstdio>
+#include <stdio.h>
 
 #include "draw.hpp"
 

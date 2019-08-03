@@ -1,6 +1,5 @@
 #include "draw.hpp"
-#include <string>
-#include <cstdio>
+#include <stdio.h>
 
 FILE *f;
 short width;
