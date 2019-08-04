@@ -18,7 +18,9 @@ double impulse(double x);
 
 int convolve(double* f1, double* f2, double* out, long int start, long int end);
 
+void fourier-series(double* f, double* out, long int start, long int end, double sinStep);
 
+double sum(double* f, long int start, long int end);
 
 int main(int argc, char** argv)
 {
@@ -113,5 +115,64 @@ int convolve(double* f1, double* f2, double* out, long int start, long int end)
 	
 	return 0;
 }
+
+
+
+double sum(double* f, long int start, long int end)
+{
+	double s = 0;
+	for(long int i = start; i < end; i++)
+		s += f[i];
+	return s;
+}
+
+
+
+
+
+void fourier-series(double* f, double* outSin, double* outCos, long int start, long int end, long int max_n, double sinStep)
+{
+	long int T = end - start;
+	double dc = sum(f, start, end) / T;
+	outSin[0] = dc;
+	outCos[0] = dc;
+	
+	double sinCoef;
+	double cosCoef;
+	
+	for(long int i = 1; i < max_n; i++)
+	{
+		
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
