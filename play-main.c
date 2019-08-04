@@ -142,7 +142,7 @@ void fourier-series(double* f, double* outSin, double* outCos, long int start, l
 	
 	for(long int i = 1; i < max_n; i++)
 	{
-		
+		;//TODO
 	}
 
 
